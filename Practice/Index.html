@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Index.css">
+    <title>Practice</title>
+</head>
+<body>
+    <div class="container">
+        <button class="start">Start</button>
+        <button class="stop">stop</button>
+        <h1>Timer : <span class="number"></span></h1>
+    </div>
+
+    <script src="Index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const start = document.querySelector(".start");
+const stop = document.querySelector(".stop");
+let i = 0;
+let request;
+const increaseNumber = ()=>{
+    console.log(i++);
+
+}
+start.addEventListener("click", ()=>{
+    console.log(i);
+    request = setInterval(increaseNumber, 100);
+})
+
+stop.addEventListener("click", ()=>{
+    clearInterval(request);
+})

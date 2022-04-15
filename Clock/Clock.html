@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Clock.css">
+    <title>Clock</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="Hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="Minute">
+            <div class="min" id="min"></div>
+        </div>
+        <div class="Second">
+            <div class="sec" id="sec"></div>
+        </div>
+    </div>
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const min = document.querySelector('#min');       
+        const sec = document.querySelector('#sec');       
+
+        let day = new Date();
+        let hh = day.getHours()*30;
+        let mm = day.getMinutes()*deg;
+        let ss = day.getSeconds()*deg;
+
+        hr.style.transform = 'rotateZ(${(hh) + (mm/12)}deg)';
+        min.style.transform = 'rotateZ(${mm}deg)';
+        sec.style.transform = 'rotateZ(${ss}deg)';
+    </script>
+</body>
+</html>
