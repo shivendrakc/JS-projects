@@ -1,39 +1,30 @@
-let computerChoiceDisplay = document.getElementById("computer_choice");
-let userChoiceDisplay = document.getElementById("user_choice");
-let resultDisplay = document.getElementById("result");
-let buttons = document.querySelectorAll("button");
-let userChoice;
-let computerChoice;
-let result;
+const compChoice = document.getElementById('compChoice');
+const userChoice = document.getElementById('userChoice');
+const result = document.getElementById('Result');
+const PossibleChoices = document.querySelectorAll('button');
 
-buttons.forEach(display => display.addEventListener("click", (e)=>{
-    userChoice = e.target.id;
-    userChoiceDisplay.innerHTML = userChoice;
-    generateComputerChoice();
-    generateResult();
+PossibleChoices.forEach(btns => btns.addEventListener('click', (e)=>{
+    let userPick = e.target.id;
+    let random = Math.floor(Math.random() * 3);
+    let choices = ['Rock', 'Paper', 'Scissor'];
+    compChoice.innerHTML = choices[random];
+    userChoice.innerHTML = userPick;
+    
+    resulDisplay(userPick, random, choices);
 }))
 
-function generateComputerChoice(){
-    const random_number = Math.floor(Math.random() * 3 + 1);
-
-    if (random_number === 1) {
-        computerChoice = 'rock';
-    }else if(random_number === 2){
-        computerChoice = 'paper'
-    }else{
-        computerChoice = 'scissor';
-    }
-    computerChoiceDisplay.innerHTML = computerChoice;
+function resulDisplay(userPick, random, choices){
+    if( userPick == 'Rock' && choices[random] == 'Scissor' || 
+        userPick == 'Paper' && choices[random] == 'Rock' ||
+        userPick == 'Scissor' && choices[random] == 'Paper'){
+            result.innerHTML = "You Won";
+        }else if(
+        userPick == 'Rock' && choices[random] == 'Paper' || 
+        userPick == 'Paper' && choices[random] == 'Scissor' ||
+        userPick == 'Scissor' && choices[random] == 'Rock'
+        ){
+            result.innerHTML = "You Lost";
+        }else{
+            result.innerHTML = "Its a tie";
+        }
 }
-function generateResult(){
-    if(userChoice === computerChoice){
-        result = 'Its a draw';
-    }else if(userChoice == 'rock' && computerChoice == 'scissor' || userChoice == 'paper' && computerChoice == 'rock' 
-             || userChoice == 'scissor' && computerChoice == 'paper'){
-        result = "You win";
-    }else{
-        result = "You lose"; 
-    }
-    resultDisplay.innerHTML = result;
-}
-
