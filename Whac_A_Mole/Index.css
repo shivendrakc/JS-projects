@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,500&display=swap');
+
+.grid{
+    width: 610px;
+    height: 610px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.square{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}
+.mole{
+    background-color: blue;
+}
